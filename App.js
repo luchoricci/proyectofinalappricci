@@ -9,6 +9,8 @@ import RoutesNav from "./src/Navigation/RoutesNav";
 import TabNav from "./src/Navigation/TabNav";
 import { Provider } from "react-redux";
 import { ReduxStore } from "./src/Redux/ReduxStore";
+import AuthNav from "./src/Navigation/AuthNav";
+import MainNav from "./src/Navigation/MainNav";
 
 
 export default function App() {
@@ -21,9 +23,9 @@ export default function App() {
 
   return (
     <Provider store={ReduxStore}>
-      <NavigationContainer>
-        <TabNav />
-      </NavigationContainer>
+
+       <MainNav/>
+    
     </Provider>
   )
 };

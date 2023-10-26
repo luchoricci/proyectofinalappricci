@@ -1,1 +1,0 @@
-export const base_url = "https://console.firebase.google.com/u/0/project/app-mobile-4b4b8/database/app-mobile-4b4b8-default-rtdb/data/~2F";
