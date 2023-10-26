@@ -4,9 +4,7 @@ import { firebase_auth } from '../../../firebase/firebase_auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { SetIdToken, SetUser } from '../../../Redux/Slice/AuthSlice';
-
-
-// import LogInStyles from './LogInStyle'
+import LogInStyles from './LogInStyle'
 
 const LogIn = ({navigation}) => {
   const dispatch = useDispatch();
@@ -38,30 +36,32 @@ const LogIn = ({navigation}) => {
 
 
   return (
-    <View>
-      <Text>Log In</Text>
+    <View style={LogInStyles.container}>
+      <Text style={LogInStyles.title}>Log In</Text>
       <View>
 
         <TextInput
           placeholder='Email'
-          // style={Styles.input}
+          style={LogInStyles.input}
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           placeholder='Password'
-          // style={Styles.input}
+          style={LogInStyles.input}
           value={password}
           onChangeText={(text) => setPasword(text)}
         />
+ 
+
       </View>
       <View>
-        <Pressable onPress={() => onHandlerLogIn()}>
-          <Text>Log In</Text>
+        <Pressable style={LogInStyles.button} onPress={() => onHandlerLogIn()}>
+          <Text style={LogInStyles.buttonText} >Log In</Text>
         </Pressable>
-        <Text>Don't you have an acount?</Text>
-        <Pressable onPress={() => navigation.navigate("SignIn")}>
-          <Text>Sign In</Text>
+        <Text style={LogInStyles.registroText} >Don't you have an acount?</Text>
+        <Pressable style={LogInStyles.button} onPress={() => navigation.navigate("SignIn")}>
+          <Text style={LogInStyles.buttonText} >Sign In</Text>
         </Pressable>
       </View>
 

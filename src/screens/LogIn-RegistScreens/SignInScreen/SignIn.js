@@ -20,40 +20,60 @@ const SignIn = ({ navigation }) => {
         password
       );
 
-      console.log(response);
+    
 
       navigation.navigate("LogIn");
     } catch (e) {
-      console.log("Error en registro", e);
+   
     }
   };
 
 
 
   return (
-    <View>
-      <Text>Sign In</Text>
-
+    <View style={SignInStyles.container}>
+      <Text style={SignInStyles.title}>Sign In</Text>
+      
       <TextInput
         placeholder='Email'
-
+        style={SignInStyles.input}
         value={email}
         onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         placeholder='Password'
-
+        style={SignInStyles.input}
         value={password}
         onChangeText={(text) => setPasword(text)}
       />
+                <TextInput
+          placeholder='Name'
+          style={SignInStyles.input}
+          // value={Name}
+          // onChangeText={(text) => setPasword(text)}
+        />
+           <TextInput
+          placeholder='Surname'
+          style={SignInStyles.input}
+          // value={Surname}
+          // onChangeText={(text) => setPasword(text)}
+        />
+           <TextInput
+          placeholder='Age'
+          style={SignInStyles.input}
+          // value={Age}
+          // onChangeText={(text) => setPasword(text)}
+        />
 
 
-      <TouchableOpacity onPress={() => onHandlerSignIn()}>
-        <Text>Sign In</Text>
+
+
+      <TouchableOpacity style={SignInStyles.button} onPress={() => onHandlerSignIn()}>
+        <Text style={SignInStyles.buttonText}>Sign In</Text>
       </TouchableOpacity>
-      <Text>Do you have an acount? </Text>
-      <Pressable onPress={() => navigation.navigate("LogIn")} >
-        <Text>Log In</Text>
+      <Text style={SignInStyles.registroText}>Do you have an acount? </Text>
+      <Pressable style={SignInStyles.button} onPress={() => navigation.navigate("LogIn")} >
+        <Text style={SignInStyles.buttonText}>Log In</Text>
       </Pressable>
 
 
