@@ -72,7 +72,7 @@ console.log({CartItems});
                 )}
             />
 
-
+ 
         </SafeAreaView>
     )
 }
