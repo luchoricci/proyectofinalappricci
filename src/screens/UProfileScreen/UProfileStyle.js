@@ -36,6 +36,17 @@ const UProfileStyles = StyleSheet.create({
         marginBottom: 6,
 
       },
+      LogOut: {
+        marginTop: 60,
+        fontSize: 24,
+        marginBottom: 70,
+        color: "white",
+        backgroundColor: colors.red,
+        paddingVertical: 10,
+        paddingHorizontal: 30,
+        borderRadius: 5,
+
+      }
 
 })
 

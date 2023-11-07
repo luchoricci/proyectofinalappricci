@@ -5,26 +5,29 @@ import UProfileStyles from './UProfileStyle'
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { usePutImageMutation } from '../../Services/ecApi';
 import { useGetImageQuery } from '../../Services/ecApi';
+import { useDispatch } from 'react-redux';
+import { ClearUser } from '../../Redux/Slice/AuthSlice';
 
 
 
 
-
-const UProfile = () => {
+const UProfile = ({navigation}) => {
 
 
   const [putImage, result] = usePutImageMutation();
 
   const { data, error, isError, refetch } = useGetImageQuery();
 
+const dispatch = useDispatch();
+
 
 
   const DefaultImage = "https://cdn.pixabay.com/photo/2013/07/13/11/35/question-158453_1280.png";
 
-
+//////////////////////////////////////////////////////////////////
   const pickImage = async () => {
 
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -35,7 +38,7 @@ const UProfile = () => {
       base64: true,
     });
 
-    // console.log(result);
+
 
     if (!result.canceled) {
       await putImage({
@@ -46,7 +49,7 @@ const UProfile = () => {
 
     }
   };
-  ////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
 
   const openCamera = async () => {
     const permResult = await ImagePicker.requestCameraPermissionsAsync();
@@ -70,6 +73,17 @@ const UProfile = () => {
       }
     }
   };
+  const onHandlerLogOut = async () =>{
+    try{
+      dispatch(ClearUser());
+      await AsyncStorage.removeItem("userEmail");
+   
+
+
+    }catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
@@ -102,6 +116,11 @@ const UProfile = () => {
 
         </View>
         <View>
+          <Pressable
+          
+          onPress={onHandlerLogOut}>
+            <Text style={UProfileStyles.LogOut}>Log Out</Text>
+          </Pressable>
 
 
         </View>

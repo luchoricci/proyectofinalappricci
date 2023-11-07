@@ -7,12 +7,12 @@ import { useGetCategoryListQuery } from "../../Services/ecApi";
 
 const Store = ({navigation}) => {
 
-const CategoryList = useSelector(state=> state.firstSlice.allCategories)
 
 
-// const datos = useGetCategoryListQuery();
-// const CategoryList = datos.data 
-// console.log(JSON.stringify(datos.null,""));
+
+const datos = useGetCategoryListQuery();
+const CategoryList = datos.data 
+console.log(JSON.stringify(datos.null,""));
   return (
     <View>
       <Header title="Categories" />

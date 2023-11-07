@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { SetIdToken, SetUser } from '../../../Redux/Slice/AuthSlice';
 import LogInStyles from './LogInStyle'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LogIn = ({navigation}) => {
   const dispatch = useDispatch();
@@ -19,21 +20,14 @@ const LogIn = ({navigation}) => {
         email,
         password
       );
-
+      AsyncStorage.setItem("userEmail",response.user.email);
       dispatch(SetUser(response.user.email));
       dispatch(SetIdToken(response._tokenResponse.idToken));
-      // console.log(response);
+   
     } catch (e) {
       console.log("Error en Login", e);
     }
   };
-
-
-
-
-
-
-
 
   return (
     <View style={LogInStyles.container}>
