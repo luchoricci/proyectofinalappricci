@@ -4,7 +4,7 @@ import PDStyles from './PDStyle'
 import Header from '../../components/Header/Header'
 import { useSelector } from 'react-redux';
 
-const ProductDetail = ({navigation, route}) => {
+const ProductDetail = ({navigation, route, onAddToCart}) => {
 
   
     const ProdSelected = useSelector(
@@ -29,6 +29,7 @@ const ProductDetail = ({navigation, route}) => {
             <Button
           color="red"
           title="add to cart"
+         onPress={() => onAddToCart(ProdSelected.id)}
         />
 
 

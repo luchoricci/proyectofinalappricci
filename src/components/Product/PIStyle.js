@@ -26,6 +26,18 @@ const PIStyles = StyleSheet.create({
     image: {
       marginRight: 10,
     },
+    CartButton: {
+      
+      backgroundColor: colors.yellow,
+    
+      borderRadius: 20,
+      marginRight:10,
+      alignItems: "center",
+     
+      marginLeft: 10,
+      width:45,
+
+    }
   });
 
   export default PIStyles

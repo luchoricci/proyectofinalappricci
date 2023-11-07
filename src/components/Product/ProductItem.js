@@ -8,16 +8,20 @@ import { useDispatch } from "react-redux";
 
 
 
-const ProductItem = ({ item, navigation}) => {
+const ProductItem = ({ item, navigation, onAddToCart}) => {
   const { width } = useWindowDimensions();
 
   const dispatch = useDispatch();
+ 
 
   const onHandleProductDetail = () =>{
     dispatch(setProductSelected(item));
     navigation.navigate("productdetail");
 
   };
+
+
+
 
   return (
     <View >
@@ -37,7 +41,13 @@ const ProductItem = ({ item, navigation}) => {
         source={{ uri: item.image }}
         resizeMode="cover"
       />
+
+      
       </Pressable>
+      <Pressable
+      style={PIStyles.CartButton}
+      onPress={() => onAddToCart(item.id)}
+      ><Text>Add to Cart</Text></Pressable>
     </View>
   );
 };

@@ -14,20 +14,20 @@ import { ClearUser } from '../../Redux/Slice/AuthSlice';
 
 
 
-const UProfile = ({navigation}) => {
+const UProfile = ({ navigation }) => {
 
 
   const [putImage, result] = usePutImageMutation();
 
   const { data, error, isError, refetch } = useGetImageQuery();
 
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 
 
   const DefaultImage = "https://cdn.pixabay.com/photo/2013/07/13/11/35/question-158453_1280.png";
 
-//////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
   const pickImage = async () => {
 
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -73,14 +73,14 @@ const dispatch = useDispatch();
       }
     }
   };
-  const onHandlerLogOut = async () =>{
-    try{
+  const onHandlerLogOut = async () => {
+    try {
       dispatch(ClearUser());
       await AsyncStorage.removeItem("userEmail");
-   
 
 
-    }catch (error) {
+
+    } catch (error) {
       console.log(error)
     }
   }
@@ -117,8 +117,8 @@ const dispatch = useDispatch();
         </View>
         <View>
           <Pressable
-          
-          onPress={onHandlerLogOut}>
+
+            onPress={onHandlerLogOut}>
             <Text style={UProfileStyles.LogOut}>Log Out</Text>
           </Pressable>
 
